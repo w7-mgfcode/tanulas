@@ -1,0 +1,6 @@
+# Teszteléshez szükséges könyvtárak
+pytest==7.3.1
+pytest-cov==4.1.0
+# Egyéb tesztelési segédkönyvtárak
+mockito==1.2.2
+pytest-mock==3.10.0

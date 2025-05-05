@@ -1,0 +1,46 @@
+# Függőségi könyvtárak
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Környezeti fájlok
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Fejlesztői környezet fájlok
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Build kimenetek
+dist/
+build/
+out/
+
+# Naplófájlok
+logs
+*.log
+
+# Ideiglenes fájlok
+*.tmp
+*.bak
+
+# Egyéb
+.temp/
+.cache/
+
+# Windows-specifikus fájlok
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux-specifikus fájlok
+*~
+.directory
+.Trash-*
