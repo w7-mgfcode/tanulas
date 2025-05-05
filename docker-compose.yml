@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build: 
@@ -10,14 +8,23 @@ services:
       - ./logs:/logs
     environment:
       - PYTHONUNBUFFERED=1
+      - LOGGING_LEVEL=INFO
+    command: tail -f /dev/null  # Aktívan tartja a konténert
+    stdin_open: true  # Interaktív mód
+    tty: true         # Pszeudo-terminál hozzáadása
 
   tests:
     build:
       context: .
-      dockerfile: Dockerfile.test
+      dockerfile: tests/Dockerfile
     volumes:
       - ./backend:/backend
       - ./tests:/tests
     depends_on:
       - backend
-    command: pytest
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOGGING_LEVEL=INFO
+    command: tail -f /dev/null  # Aktívan tartja a konténert
+    stdin_open: true
+    tty: true

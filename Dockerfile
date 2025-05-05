@@ -36,8 +36,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Projekt fájlok
 COPY backend/ .
 
+# Naplózás hozzáadása
+RUN pip install --no-cache-dir logging
+
 # Command
-CMD ["python", "-m", "main"]
+CMD ["python", "-c", "import logging; logging.basicConfig(level=logging.INFO); logging.info('Backend konténer elindult'); import time; time.sleep(float('inf'))"]
 
 # Port
 EXPOSE 9000

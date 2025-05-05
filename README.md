@@ -11,11 +11,11 @@ projekt/
 ├── backend/           # Backend forráskód
 │   ├── main.py
 │   └── requirements.txt
-├── test/              # Tesztek
+├── tests/             # Tesztek
 │   └── requirements.txt
 ├── Dockerfile         # Backend Docker konfiguráció
 ├── Dockerfile.test    # Teszt Docker konfiguráció
-└── docker-compose.yml # Docker compose konfiguráció
+└── docker compose.yml # Docker compose konfiguráció
 ```
 
 ## Telepítés és Első Lépések
@@ -30,10 +30,10 @@ cd <projekt-mappa>
 2. Docker Konténerek Felépítése
 ```bash
 # Összes konténer felépítése
-docker-compose build
+docker compose build
 
 # Backend indítása
-docker-compose up backend
+docker compose up backend
 ```
 
 ## Tesztelés
@@ -41,13 +41,13 @@ docker-compose up backend
 ### Tesztek Futtatása
 ```bash
 # Összes teszt futtatása
-docker-compose run tests
+docker compose exec tests pytest /tests
 
 # Specifikus teszt futtatása
-docker-compose run tests pytest /tests/test_specifikus_modul.py
+docker compose exec tests pytest /tests/test_specifikus_modul.py
 
 # Lefedettségi jelentés
-docker-compose run tests pytest --cov=backend
+docker compose exec tests pytest --cov=backend
 ```
 
 ## Fejlesztési Munkafolyamat
@@ -55,19 +55,19 @@ docker-compose run tests pytest --cov=backend
 ### Új Függőségek Hozzáadása
 1. Backend függőségek: `backend/requirements.txt`
 2. Teszt függőségek: `tests/requirements.txt`
-3. Újraépítés: `docker-compose build`
+3. Újraépítés: `docker compose build`
 
 ### Gyakori Parancsok
 ```bash
 # Konténerek indítása
-docker-compose up
+docker compose up -d
 
 # Konténerek leállítása
-docker-compose down
+docker compose down
 
 # Naplók megtekintése
-docker-compose logs backend
-docker-compose logs tests
+docker compose logs backend
+docker compose logs tests
 ```
 
 ## Hibakeresés
@@ -75,10 +75,10 @@ docker-compose logs tests
 ### Belépés Konténerbe
 ```bash
 # Backend konténer
-docker-compose exec backend /bin/bash
+docker compose exec backend /bin/bash
 
 # Teszt konténer
-docker-compose exec tests /bin/bash
+docker compose exec tests /bin/bash
 ```
 
 ## Környezeti Változók
@@ -94,7 +94,7 @@ docker-compose exec tests /bin/bash
 ## Telepítés Éles Környezetbe
 1. Docker és Docker Compose telepítése a célszerveren
 2. Projekt fájlok másolása
-3. `docker-compose up -d` parancs futtatása
+3. `docker compose up -d` parancs futtatása
 
 ## Hozzájárulás a Projekthez
 1. Fork a repository-ról
